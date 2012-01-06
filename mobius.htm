@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link href="mobius.css" rel="stylesheet" type="text/css">
+<style>
+
+.body { width: 200px; height: 200px;
+        background-color: beige; border: 1px solid brown;
+        font-size: 150%; padding: 10px;
+        -moz-transform: rotateY(90deg);
+        -webkit-transform: rotateY(90deg);}
+
+</style>
+
+<script type="text/javascript">
+
+function setView(value) {
+
+    document.getElementById("showVal").innerHTML=value+"px";
+
+    document.getElementById("view3d").style.webkitPerspective=value+"px";
+    document.getElementById("view3d").style.mozPerspective=value+"px";
+
+}
+
+function mobius(id,aa){
+  var a2=aa % 360;
+  var angle=a2 *Math.PI;
+  angle=angle /180;
+  
+  angle2=angle+0.01;
+  var  d = document.getElementById(id);
+  var  x=Math.round(Math.cos(angle)*200+150);
+  var  y=Math.round(Math.sin(angle)*200+150);
+  var  z=Math.round( Math.sin(angle*2 )*50+150);
+
+  
+  var x2=Math.round((1- Math.cos(angle/2 ))*Math.cos(angle)*100);
+  var y2=Math.round((1- Math.cos(angle/2 ))*Math.sin(angle)*100);
+  var z2=Math.round( Math.sin(angle )* -100);
+  
+  var x3=Math.round((1+ Math.cos(angle2/2 ))*Math.cos(angle2)*100);
+  var y3=Math.round((1+ Math.cos(angle2/2 ))*Math.sin(angle2)*100);
+  var z3=Math.round( Math.sin(angle2 )*100);
+  x2 -= x;
+  y2 -= y;
+  z2 -= z;
+
+  
+  var r2=Math.round(Math.atan2(z2-z,x2-x)*180/ Math.PI  -45);
+  var r=Math.round(Math.atan2(y3-y,x3-x)*180/ Math.PI  -45);
+  r=Math.round(Math.cos(Math.sin(angle))*40);
+  var zm = " -moz-transform:    translate3d("+x;
+  zm+="px,"+y+"px,"+z+"px) rotateZ("+(a2)+"deg) rotateY(30deg);";
+   var zw= "   translate3d("+x+"px,"+y+"px,"+z+"px)  rotateZ("+(a2)+"deg) rotateX("+r+"deg) ";
+  var zma = "   translate3d("+x+"px,"+y+"px,"+z+"px) rotateZ("+(a2)+"deg) rotateX("+r+"deg)  ";
+  try {
+  if (d) {
+//   d.setAttribute('style',zm);
+   if (d.style.MozTransform != null){
+   d.style.MozTransform=zma;}
+   d.style['-webkit-transform']=zw;
+//   d.style.webkitTransform=zw;
+  }
+  } catch(ee){};
+  
+}
+
+function setup(x){
+var y=x+2;
+var z="setup("+y+")";
+setTimeout( z ,100);
+mobius("id0",20+x);
+mobius("id1",40+x);
+mobius("id2",60+x);
+mobius("id3",80+x);
+mobius("id4",100+x);
+mobius("id5",120+x);
+mobius("id6",140+x);
+mobius("id7",160+x);
+mobius("id8",180+x);
+mobius("id9",200+x);
+mobius("id10",220+x);
+mobius("id11",240+x);
+mobius("id12",260+x);
+mobius("id13",280+x);
+mobius("id14",300+x);
+mobius("id15",320+x);
+mobius("id16",340+x);
+mobius("id17",360+x);
+}
+
+window.onload = setup(0);
+
+</script>
+
+</head>
+<body style="-moz-transform-style: preserve-3d; -webkit-transform-style: preserve-3d;">
+
+
+
+
+<!-- KONIEC MENU GÓRNE -->
+
+<div id="mdcontent" style="display:block;">
+     <table><tr>
+      <td id="mdnarzedzia" style="width:100px;"> </td>
+
+      <td style="width:400px;">
+      <div id="globA">
+      <div class="glob">
+       <div class="lg0" id="id0"  >ls0</div>
+       <div class="lg1" id="id1" >ls1</div>
+       <div class="lg2" id="id2" >ls2</div>
+       <div class="lg3" id="id3" >ls3</div>
+       <div class="lg4" id="id4" >ls4</div>
+       <div class="lg5" id="id5" >ls5</div>
+       <div class="lg6" id="id6" >ls6</div>
+       <div class="lg7" id="id7" >ls7</div>
+       <div class="lg8" id="id8" >ls8</div>
+       <div class="lg9" id="id9" >ls9</div>
+       <div class="lg10" id="id10" >ls10</div>
+       <div class="lg11" id="id11" >ls11</div>
+       <div class="lg0" id="id12"  >ls12</div>
+       <div class="lg1" id="id13" >ls13</div>
+       <div class="lg2" id="id14" >ls14</div>
+       <div class="lg3" id="id15" >ls15</div>
+       <div class="lg4" id="id16" >ls16</div>
+       <div class="lg4" id="id17" >ls17</div>
+
+
+
+
+      </div></div></td>
+      
+      
+      
+      <td style="width: 225px;">
+
+
+      </td>
+     </tr>
+     </table> 
+
+</div>
+
+
+
+
+</div> <!-- mdweb -->
+
+
+</div>
+</body>
