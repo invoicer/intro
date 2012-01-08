@@ -14,14 +14,6 @@
 
 <script type="text/javascript">
 
-function setView(value) {
-
-    document.getElementById("showVal").innerHTML=value+"px";
-
-    document.getElementById("view3d").style.webkitPerspective=value+"px";
-    document.getElementById("view3d").style.mozPerspective=value+"px";
-
-}
 
 function mobius(id,aa){
   var a2=aa % 360;
@@ -56,11 +48,10 @@ function mobius(id,aa){
   var zma = "   translate3d("+x+"px,"+y+"px,"+z+"px) rotateZ("+(a2)+"deg) rotateX("+r+"deg)  ";
   try {
   if (d) {
-//   d.setAttribute('style',zm);
    if (d.style.MozTransform != null){
-   d.style.MozTransform=zma;}
-   d.style['-webkit-transform']=zw;
-//   d.style.webkitTransform=zw;
+      d.style.MozTransform=zma;}
+   if (d.style.webkitTransform != null){
+   d.style['-webkit-transform']=zw;}
   }
   } catch(ee){};
   
@@ -91,64 +82,54 @@ mobius("id17",360+x);
 }
 
 window.onload = setup(0);
-
 </script>
-
 </head>
-<body style="-moz-transform-style: preserve-3d; -webkit-transform-style: preserve-3d;">
 
+<body >
+<h1> <img src="html5.png" > Möbius strip</h1>
+<p> Animation of <a href="http://en.wikipedia.org/wiki/M%C3%B6bius_strip"> möbius strip</a> using 3d transform</p>
+<p>  This is working only on <a href="http://www.mozilla.org/en-US/firefox/channel/">Aurora</a> browser (Firefox 11)</p>
 
-
-
-<!-- KONIEC MENU GÓRNE -->
 
 <div id="mdcontent" style="display:block;">
-     <table><tr>
-      <td id="mdnarzedzia" style="width:100px;"> </td>
+  <div id="globA">
+    <div class="glob">
+       <div class="lg0" id="id0"  ><p>&nbsp;</p></div>
+       <div class="lg1" id="id1" ><p>&nbsp;</p></div>
+       <div class="lg2" id="id2" ><p>&nbsp;</p></div>
+       <div class="lg3" id="id3" ><p>&nbsp;</p></div>
+       <div class="lg4" id="id4" ><p>&nbsp;</p></div>
+       <div class="lg5" id="id5" ><p>&nbsp;</p></div>
+       <div class="lg6" id="id6" ><p>&nbsp;</p></div>
+       <div class="lg7" id="id7" ><p>&nbsp;</p></div>
+       <div class="lg8" id="id8" ><p>&nbsp;</p></div>
+       <div class="lg9" id="id9" ><p>&nbsp;</p></div>
+       <div class="lg10" id="id10" ><p>&nbsp;</p></div>
+       <div class="lg11" id="id11" ><p>&nbsp;</p></div>
+       <div class="lg0" id="id12"  ><p>&nbsp;</p></div>
+       <div class="lg1" id="id13" ><p>&nbsp;</p></div>
+       <div class="lg2" id="id14" ><p>&nbsp;</p></div>
+       <div class="lg3" id="id15" ><p>&nbsp;</p></div>
+       <div class="lg4" id="id16" ><p>&nbsp;</p></div>
+       <div class="lg4" id="id17" ><p>&nbsp;</p></div>
+    </div>
+  </div>
+</div>
 
-      <td style="width:400px;">
-      <div id="globA">
-      <div class="glob">
-       <div class="lg0" id="id0"  >ls0</div>
-       <div class="lg1" id="id1" >ls1</div>
-       <div class="lg2" id="id2" >ls2</div>
-       <div class="lg3" id="id3" >ls3</div>
-       <div class="lg4" id="id4" >ls4</div>
-       <div class="lg5" id="id5" >ls5</div>
-       <div class="lg6" id="id6" >ls6</div>
-       <div class="lg7" id="id7" >ls7</div>
-       <div class="lg8" id="id8" >ls8</div>
-       <div class="lg9" id="id9" >ls9</div>
-       <div class="lg10" id="id10" >ls10</div>
-       <div class="lg11" id="id11" >ls11</div>
-       <div class="lg0" id="id12"  >ls12</div>
-       <div class="lg1" id="id13" >ls13</div>
-       <div class="lg2" id="id14" >ls14</div>
-       <div class="lg3" id="id15" >ls15</div>
-       <div class="lg4" id="id16" >ls16</div>
-       <div class="lg4" id="id17" >ls17</div>
-
-
-
-
-      </div></div></td>
-      
-      
-      
-      <td style="width: 225px;">
-
-
-      </td>
-     </tr>
-     </table> 
-
+ <div class="video-js-box">
+    <!-- Using the Video for Everybody Embed Code http://camendesign.com/code/video_for_everybody -->
+    <video id="example_video_1" class="video-js" width="640" height="264" controls="controls" preload="auto" poster="mobius-clip.png">
+      <source src="mobius-clip.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' />
+      <source src="http://invoicer.pl/mobius-clip.webm" type='video/webm; codecs="vp8, vorbis"' />
+      <source src="http://invoicer.pl/mobius-clip.ogv" type='video/ogg; codecs="theora, vorbis"' />      
+    </video>
 </div>
 
 
-
-
-</div> <!-- mdweb -->
-
+<div style="display:block;float:left;position:fixed;bottom:0;right:0;"> 
+ <a href="http://invoicer.biz"><img src="intro-invoicer.png"></a>
+ <footer><cite>DarekM@emadar.com</cite> </footer>
 
 </div>
+
 </body>
